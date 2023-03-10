@@ -52,10 +52,10 @@ def expiration_operation_M5(tzone):
     dtime = datetime_now(tzone="America/Sao Paulo")
     return {
         "open_time": int(dtime.timestamp()),
-        "alert_datetime": dtime,
-        "expiration_alert": expiration,
+        "alert_datetime": dtime.strftime("%Y-%m-%d %H:%M:%S"),
+        "expiration_alert": expiration.strftime("%Y-%m-%d %H:%M:%S"),
         "expiration_alert_timestamp": int(expiration.timestamp()),
-        "alert_time_update": dtime
+        "alert_time_update": dtime.strftime("%Y-%m-%d %H:%M:%S")
         }
 
 def expiration_operation_M5_2(tzone):
@@ -94,9 +94,8 @@ def expiration_operation_M5_2(tzone):
     dtime = datetime_now(tzone="America/Sao Paulo")
     return {
         "open_time": int(dtime.timestamp()),
-        "alert_datetime": dtime,
-        "expiration_alert": expiration,
+        "alert_datetime": dtime.strftime("%Y-%m-%d %H:%M:%S"),
+        "expiration_alert": expiration.strftime("%Y-%m-%d %H:%M:%S"),
         "expiration_alert_timestamp": int(expiration.timestamp()),
-        "alert_time_update": dtime
+        "alert_time_update": dtime.strftime("%Y-%m-%d %H:%M:%S")
         }
-
