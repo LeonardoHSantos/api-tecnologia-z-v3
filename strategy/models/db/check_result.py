@@ -47,7 +47,7 @@ def update_database_M5(obj_database, lista_padroes):
                         resultado = "win"
                     else:
                         resultado = "-"
-
+                    
                     print(f" ######### Direção: {direcao} | Resultado: {resultado} #########")
                     alert_time_update = datetime_now(tzone="America/Sao Paulo")
                     
