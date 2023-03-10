@@ -37,22 +37,27 @@ def update_database_M5(obj_database, lista_padroes):
                 print(f"\n\n --->> Total registros check results: {tt_query}")
                 if tt_query >= 1:
                     direcao = result_query[0][1]
-                    resultado = None
+                    resultado = "-"
 
+                    print(f"------->> active: {active} | status_candle: {status_candle} | direção: {direcao} | padrão: {padrao} | expiration_alert: {expiration_alert}")
+
+                    # call | put
+                    # alta       baixa       sem mov.
                     if status_candle == "sem mov.":
                         resultado = "empate"
-                    elif status_candle != "sem mov." and status_candle =="alta" and direcao == "call":
+
+                    elif status_candle == "alta" and direcao == "call":
                         resultado = "win"
-                    elif status_candle != "sem mov." and status_candle =="alta" and direcao == "put":
+                    elif status_candle == "alta" and direcao == "put":
                         resultado = "loss"
-                    elif status_candle != "sem mov." and status_candle =="baixa" and direcao == "put":
-                        resultado = "win"
-                    elif status_candle != "sem mov." and status_candle =="baixa" and direcao == "alta":
-                        resultado = "loss"
-                    else:
-                        resultado = "-"
                     
-                    print(f" ######### Direção: {direcao} | Resultado: {resultado} #########")
+                    elif status_candle == "baixa" and direcao == "put":
+                        resultado = "win"
+                    elif status_candle == "baixa" and direcao == "call":
+                        resultado = "loss"
+                    
+                    
+                    print(f" ######### status_candle: {status_candle} | direção: {direcao} | resultado: {resultado} #########")
                     alert_time_update = datetime_now(tzone="America/Sao Paulo").strftime("%Y-%m-%d %H:%M:%S")
                     
                     comando_update = f'''
