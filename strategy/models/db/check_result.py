@@ -52,7 +52,7 @@ def update_database_M5(obj_database, lista_padroes):
                     alert_time_update = datetime_now(tzone="America/Sao Paulo")
                     
                     comando_update = f'''
-                    UPDATE FROM {config_auth.TABLE_NAME_M5}
+                    UPDATE {config_auth.TABLE_NAME_M5}
                     SET resultado = "{resultado}", alert_time_update = "{alert_time_update}"
                     WHERE active = "{active}" and padrao = "{padrao}" and expiration_alert = "{expiration_alert}" and id >= 0
                     '''
