@@ -49,7 +49,7 @@ def update_database_M5(obj_database, lista_padroes):
                         resultado = "-"
                     
                     print(f" ######### Direção: {direcao} | Resultado: {resultado} #########")
-                    alert_time_update = datetime_now(tzone="America/Sao Paulo")
+                    alert_time_update = datetime_now(tzone="America/Sao Paulo").strftime("%Y-%m-%d %H:%M:%S")
                     
                     comando_update = f'''
                     UPDATE {config_auth.TABLE_NAME_M5}
