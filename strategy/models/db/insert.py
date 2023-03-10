@@ -52,7 +52,7 @@ def insert_database_M5(obj_database):
             print(" --->> Registro inserido com sucesso!")
         else:
             comando_update = f'''
-            UPDATE FROM {config_auth.TABLE_NAME_M5}
+            UPDATE {config_auth.TABLE_NAME_M5}
             SET open_time = "{open_time}", resultado = "{resultado}", direction = "{direction}", status_alert = "{status_alert}", alert_time_update = "{alert_time_update}"
             WHERE name_strategy = "{name_strategy}" and expiration_alert = "{expiration_alert}" and id >= 0
             '''
