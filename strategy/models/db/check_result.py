@@ -54,7 +54,7 @@ def update_database_M5(obj_database, lista_padroes):
                     comando_update = f'''
                     UPDATE FROM {config_auth.TABLE_NAME_M5}
                     SET resultado = "{resultado}", alert_time_update = "{alert_time_update}"
-                    WHERE active = {active}, padrao = "{padrao}" and expiration_alert = "{expiration_alert}" and id >= 0
+                    WHERE active = {active} and padrao = "{padrao}" and expiration_alert = "{expiration_alert}" and id >= 0
                     '''
                     cursor.execute(comando_update)
                     conn.commit()
