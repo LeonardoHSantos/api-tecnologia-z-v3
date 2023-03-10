@@ -41,10 +41,14 @@ def update_database_M5(obj_database, lista_padroes):
 
                     if status_candle == "sem mov.":
                         resultado = "empate"
-                    elif status_candle != "sem mov." and status_candle != direcao:
-                        resultado = "loss"
-                    elif status_candle == direcao:
+                    elif status_candle != "sem mov." and status_candle =="alta" and direcao == "call":
                         resultado = "win"
+                    elif status_candle != "sem mov." and status_candle =="alta" and direcao == "put":
+                        resultado = "loss"
+                    elif status_candle != "sem mov." and status_candle =="baixa" and direcao == "put":
+                        resultado = "win"
+                    elif status_candle != "sem mov." and status_candle =="baixa" and direcao == "alta":
+                        resultado = "loss"
                     else:
                         resultado = "-"
                     
