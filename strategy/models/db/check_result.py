@@ -36,7 +36,7 @@ def update_database_M5(obj_database, lista_padroes):
                 tt_query = len(result_query)
                 print(f"\n\n --->> Total registros check results: {tt_query}")
                 if tt_query >= 1:
-                    direcao = result_query[0][1]
+                    direcao = result_query[0][0]
                     resultado = "-"
 
                     print(f"------->> active: {active} | status_candle: {status_candle} | direção: {direcao} | padrão: {padrao} | expiration_alert: {expiration_alert}")
