@@ -9,7 +9,7 @@ TIMEFRAMES_NAME = {
 
 PARIDADES = {
     # 'EURUSD': 1,
-	'EURGBP': 2,
+	# 'EURGBP': 2,
 	'GBPJPY': 3,
 	'EURJPY': 4,
 	'GBPUSD': 5,
@@ -18,7 +18,7 @@ PARIDADES = {
 	# 'NZDUSD': 8,
 	# 'USDCHF': 72,
 	# 'EURUSD-OTC': 76,
-	'EURGBP-OTC': 77,
+	# 'EURGBP-OTC': 77,
 	# 'USDCHF-OTC': 78,
 	'EURJPY-OTC': 79,
 	# 'NZDUSD-OTC': 80,
