@@ -35,7 +35,6 @@ def prepare_message_database(active, direction, resultado, padrao, status_alert,
 
     
 
-
 def Strategy_1(list_dataframes, lista_dataframes_supp_res, padrao, status_alert, t_version):
     print(f"Processando Estratégia M5 - Versão 1 | Strategy_1")
     # print(list_dataframes)
