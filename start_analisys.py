@@ -1,11 +1,13 @@
-# from config_auth import IDENTIFIER_IQOPTION, PASSWORD_IQOPTION
+from config_auth import IDENTIFIER_IQOPTION, PASSWORD_IQOPTION
 from strategy.views.run_analysis import RunAnalysys
 
 
-# RUN = RunAnalysys(identifier=IDENTIFIER_IQOPTION, password=PASSWORD_IQOPTION)
-# RUN.connect_wss()
-# # RUN.get_candles_check_alternative(list_active_name, timeframe, amount, tzone, list_support_resistence, amount_sup)
-# # RUN.initiate_strategies()
+RUN = RunAnalysys(identifier=IDENTIFIER_IQOPTION, password=PASSWORD_IQOPTION)
+RUN.connect_wss()
+RUN.initiate_strategies()
+
+
+# RUN.get_candles_check_alternative(list_active_name, timeframe, amount, tzone, list_support_resistence, amount_sup)
 
 # list_active_name = ""
 # timeframe = 60*5
