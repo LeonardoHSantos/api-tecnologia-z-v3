@@ -1,6 +1,10 @@
 import threading
+import pandas as pd
 from time import sleep
-from datetime import datetime
+from datetime import datetime, timedelta
+
+from strategy.actives import PARIDADES
+
 
 from strategy.controllers.auth.auth import auth
 from strategy.models.wss.client import WSS_Client
@@ -72,11 +76,12 @@ class RunAnalysys:
         expiration = expiration_datetime(tzone=tzone)["exp_timestamp"]
         total_list_requests = 0
         for active_name in list_active_name:
-            msg_get_candles = ChannelsWSS.get_candles(active_name, timeframe, expiration, amount, actives_open)
-            self.obj_wss.list_requests.append(msg_get_candles)
-            self.obj_wss.wss.send(msg_get_candles)
-            total_list_requests += 1
-            print(f">>> MSG GET CANDLE ENVIADA: {msg_get_candles}")
+            if active_name in PARIDADES.keys():
+                msg_get_candles = ChannelsWSS.get_candles(active_name, timeframe, expiration, amount, actives_open)
+                self.obj_wss.list_requests.append(msg_get_candles)
+                self.obj_wss.wss.send(msg_get_candles)
+                total_list_requests += 1
+                print(f">>> MSG GET CANDLE ENVIADA: {msg_get_candles}")
         
         while True:
             if len(self.obj_wss.obj_candles) == len(self.obj_wss.list_requests):
@@ -129,11 +134,12 @@ class RunAnalysys:
         expiration = expiration_datetime(tzone=tzone)["exp_timestamp"]
         total_list_requests = 0
         for active_name in list_active_name:
-            msg_get_candles = ChannelsWSS.get_candles(active_name, timeframe, expiration, amount, actives_open)
-            self.obj_wss.list_requests.append(msg_get_candles)
-            self.obj_wss.wss.send(msg_get_candles)
-            total_list_requests += 1
-            print(f">>> MSG GET CANDLES CHECK-RESULT ENVIADA: {msg_get_candles}")
+            if active_name in PARIDADES.keys():
+                msg_get_candles = ChannelsWSS.get_candles(active_name, timeframe, expiration, amount, actives_open)
+                self.obj_wss.list_requests.append(msg_get_candles)
+                self.obj_wss.wss.send(msg_get_candles)
+                total_list_requests += 1
+                print(f">>> MSG GET CANDLES CHECK-RESULT ENVIADA: {msg_get_candles}")
         
         while True:
             if len(self.obj_wss.obj_candles) == len(self.obj_wss.list_requests):
@@ -146,6 +152,47 @@ class RunAnalysys:
 
         return lista_dataframes
 
+    def get_candles_alternative(self, active_name, timeframe, amount, tzone, tt_loop):
+        sleep(2)
+        # expiration = expiration_datetime(tzone=tzone)["exp_timestamp"]
+        lista_df = []
+        try:
+            
+            for i in range(tt_loop):
+                expiration = expiration = datetime.now() - timedelta(minutes=i*1000)
+                expiration = int(expiration.timestamp())
+
+                print(f" ********** expiration: {expiration}")
+                msg_get_candles = ChannelsWSS.get_candles_alternative(active_name, timeframe, expiration, amount)
+                self.obj_wss.list_requests.append(msg_get_candles)
+                self.obj_wss.wss.send(msg_get_candles)
+
+                print(f">>> MSG GET CANDLE ALTERNATIVE ENVIADA: {msg_get_candles}")
+                    
+                while True:
+                    if len(self.obj_wss.obj_candles) == len(self.obj_wss.list_requests):
+                        break
+                
+                print(f" -------- processo get_candles finalizando -------- ") #: {self.obj_wss.obj_candles}")
+                dataframe = self.convert_lists_to_dataframe(obj_candles=self.obj_wss.obj_candles)
+                lista_df.append(dataframe)
+                self.obj_wss.list_requests.clear()
+                self.obj_wss.obj_candles.clear()
+
+            
+            self.close_connection_wss()
+            return lista_df
+        except Exception as e:
+            print(f"Erro: {e}")
+            return lista_df
+    
+
+    def get_candles_check_alternative(self, list_active_name, timeframe, amount, tzone, list_support_resistence, amount_sup):
+        base = self.get_candles(list_active_name, timeframe, amount, tzone, list_support_resistence, amount_sup)
+        candles = base["lista_dataframes"]
+        for df in candles:
+            name = df["active_name"][0]
+            df.to_excel(f"base/teste/{name}.xlsx")
 
     def convert_lists_to_dataframe(self, obj_candles):
         print(f"Process: convert_lists_to_dataframe")
@@ -277,9 +324,7 @@ class RunAnalysys:
             minutes = date.minute
             seconds = date.second
             # compartilhando 1, 2 e 4
-
-
-
+            
             # check results
             if minutes in LIST_MINUTES_STRATEGY_V1_CHECK_RESULTS and seconds >= 3 and seconds <= 4:
                 lista_padroes = ["V1", "V2", "V4"]

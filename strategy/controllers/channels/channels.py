@@ -25,6 +25,23 @@ class ChannelsWSS:
         print(f"\n\n\n\n ########### request_id: {request_id}")
         return prepare_data.prepare_msg(name=name, msg=message, request_id=request_id)
     
+    def get_candles_alternative(active_name, timeframe, expiration, amount):
+        name = 'sendMessage'
+        
+        message = {
+            'name': 'get-candles',
+            'version': '2.0',
+            'body': {
+                'active_id': PARIDADES[active_name],
+                'size': timeframe,
+                'to': expiration,
+                'count': amount,
+            }
+        }
+        request_id = f"{active_name} - {TIMEFRAMES_NAME[timeframe]}"
+        print(f"\n\n\n\n ########### request_id: {request_id}")
+        return prepare_data.prepare_msg(name=name, msg=message, request_id=request_id)
+    
 
     def get_actives_open():
 
