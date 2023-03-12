@@ -233,7 +233,7 @@ class RunAnalysys:
         timeframe = 60*5
         tzone = "America/Sao_Paulo"
         amount = 7
-        amount_sup = 30
+        amount_sup = 15
         list_support_resistence = [60*15, 60*60, 60*(60*4)]
         candles_v3 = self.get_candles(list_active_name, timeframe, amount, tzone, list_support_resistence, amount_sup)
         list_dataframes = candles_v3["lista_dataframes"]
@@ -254,7 +254,7 @@ class RunAnalysys:
         timeframe = 60*5
         tzone = "America/Sao_Paulo"
         amount = 7
-        amount_sup = 30
+        amount_sup = 15
         list_support_resistence = [60*15, 60*60, 60*(60*4)]
         candles_v3 = self.get_candles(list_active_name, timeframe, amount, tzone, list_support_resistence, amount_sup)
         list_dataframes = candles_v3["lista_dataframes"]
@@ -276,7 +276,7 @@ class RunAnalysys:
         timeframe = 60*5
         tzone = "America/Sao_Paulo"
         amount = 3
-        amount_sup = 30
+        amount_sup = 15
         list_support_resistence = [60*15, 60*60, 60*(60*4)]
         candles_v3 = self.get_candles(list_active_name, timeframe, amount, tzone, list_support_resistence, amount_sup)
         list_dataframes = candles_v3["lista_dataframes"]
@@ -298,7 +298,7 @@ class RunAnalysys:
         timeframe = 60*5
         tzone = "America/Sao_Paulo"
         amount = 7
-        amount_sup = 30
+        amount_sup = 15
         list_support_resistence = [60*15, 60*60, 60*(60*4)]
         candles_v4 = self.get_candles(list_active_name, timeframe, amount, tzone, list_support_resistence, amount_sup)
         list_dataframes = candles_v4["lista_dataframes"]
