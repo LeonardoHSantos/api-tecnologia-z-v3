@@ -130,20 +130,20 @@ def Strategy_1(list_dataframes, lista_dataframes_supp_res, padrao, status_alert,
 
                             # --------------------------------
                             # -------------- support
-                            if min_value <= min_value_temp and open_value > min_value_temp:
-                                touch_candle = f"{from_value} travou no suporte de {from_temp} - {active_name_temp} | max: {max_value_temp} | min: {min_value_temp}"
-                                list_resistence_touch.append(touch_candle)
-                            elif min_value < min_value_temp and open_value >= min_value_temp:
-                                touch_candle = f"{from_value} travou no suporte de {from_temp} - {active_name_temp} | max: {max_value_temp} | min: {min_value_temp}"
-                                list_resistence_touch.append(touch_candle)
+                            # if min_value <= min_value_temp and open_value > min_value_temp:
+                            #     touch_candle = f"{from_value} travou no suporte de {from_temp} - {active_name_temp} | max: {max_value_temp} | min: {min_value_temp}"
+                            #     list_resistence_touch.append(touch_candle)
+                            # elif min_value < min_value_temp and open_value >= min_value_temp:
+                            #     touch_candle = f"{from_value} travou no suporte de {from_temp} - {active_name_temp} | max: {max_value_temp} | min: {min_value_temp}"
+                            #     list_resistence_touch.append(touch_candle)
 
-                            # -------------- resistence
-                            elif max_value >= max_value_temp and close_value < max_value_temp:
-                                touch_candle = f"{from_value} travou na resistencia de {from_temp} - {active_name_temp} | max: {max_value_temp} | min: {min_value_temp}"
-                                list_resistence_touch.append(touch_candle)
-                            elif max_value > max_value_temp and close_value <= max_value_temp:
-                                touch_candle = f"{from_value} travou na resistencia de {from_temp} - {active_name_temp} | max: {max_value_temp} | min: {min_value_temp}"
-                                list_resistence_touch.append(touch_candle)
+                            # # -------------- resistence
+                            # elif max_value >= max_value_temp and close_value < max_value_temp:
+                            #     touch_candle = f"{from_value} travou na resistencia de {from_temp} - {active_name_temp} | max: {max_value_temp} | min: {min_value_temp}"
+                            #     list_resistence_touch.append(touch_candle)
+                            # elif max_value > max_value_temp and close_value <= max_value_temp:
+                            #     touch_candle = f"{from_value} travou na resistencia de {from_temp} - {active_name_temp} | max: {max_value_temp} | min: {min_value_temp}"
+                            #     list_resistence_touch.append(touch_candle)
 
                             
                             
@@ -184,19 +184,19 @@ def Strategy_1(list_dataframes, lista_dataframes_supp_res, padrao, status_alert,
 
                             #----------------------------
                             # --- resistence min
-                            if max_value >= max_value_temp and open_value < max_value_temp:
-                                touch_candle = f"{from_value} travou na resistência de {from_temp} - {active_name_temp} | max: {max_value_temp} | min: {min_value_temp}"
-                                list_support_touch.append(touch_candle)
-                            elif max_value > max_value_temp and open_value <= max_value_temp:
-                                touch_candle = f"{from_value} travou na resistência de {from_temp} - {active_name_temp} | max: {max_value_temp} | min: {min_value_temp}"
-                                list_support_touch.append(touch_candle)
-                            # ------
-                            elif max_value >= min_value_temp and open_value < min_value_temp:
-                                touch_candle = f"{from_value} travou no suporte de {from_temp} - {active_name_temp} | max: {max_value_temp} | min: {min_value_temp}"
-                                list_support_touch.append(touch_candle)
-                            elif max_value > min_value_temp and open_value <= min_value_temp:
-                                touch_candle = f"{from_value} travou no suporte de {from_temp} - {active_name_temp} | max: {max_value_temp} | min: {min_value_temp}"
-                                list_support_touch.append(touch_candle)
+                            # if max_value >= max_value_temp and open_value < max_value_temp:
+                            #     touch_candle = f"{from_value} travou na resistência de {from_temp} - {active_name_temp} | max: {max_value_temp} | min: {min_value_temp}"
+                            #     list_support_touch.append(touch_candle)
+                            # elif max_value > max_value_temp and open_value <= max_value_temp:
+                            #     touch_candle = f"{from_value} travou na resistência de {from_temp} - {active_name_temp} | max: {max_value_temp} | min: {min_value_temp}"
+                            #     list_support_touch.append(touch_candle)
+                            # # ------
+                            # elif max_value >= min_value_temp and open_value < min_value_temp:
+                            #     touch_candle = f"{from_value} travou no suporte de {from_temp} - {active_name_temp} | max: {max_value_temp} | min: {min_value_temp}"
+                            #     list_support_touch.append(touch_candle)
+                            # elif max_value > min_value_temp and open_value <= min_value_temp:
+                            #     touch_candle = f"{from_value} travou no suporte de {from_temp} - {active_name_temp} | max: {max_value_temp} | min: {min_value_temp}"
+                            #     list_support_touch.append(touch_candle)
 
 
                             
