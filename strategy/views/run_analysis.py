@@ -184,8 +184,7 @@ class RunAnalysys:
             return lista_df
         except Exception as e:
             print(f"Erro: {e}")
-            return lista_df
-    
+            return lista_df  
 
     def get_candles_check_alternative(self, list_active_name, timeframe, amount, tzone, list_support_resistence, amount_sup):
         base = self.get_candles(list_active_name, timeframe, amount, tzone, list_support_resistence, amount_sup)
