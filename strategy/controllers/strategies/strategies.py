@@ -259,12 +259,12 @@ def Strategy_1(list_dataframes, lista_dataframes_supp_res, padrao, status_alert,
 
         
         # ----- V1
-        direction_v1 = process_strategy_v1(df, name_active)
-        prepare_message_database(active=name_active, direction=direction_v1, resultado="process", padrao=f"{padrao}-V1", status_alert=status_alert, name_strategy=f"{name_active}-M5-V1", mercado=mercado, t_version="M5-V1")
+        # direction_v1 = process_strategy_v1(df, name_active)
+        # prepare_message_database(active=name_active, direction=direction_v1, resultado="process", padrao=f"{padrao}-V1", status_alert=status_alert, name_strategy=f"{name_active}-M5-V1", mercado=mercado, t_version="M5-V1")
         
         # ----- V2
-        direction_v2 = process_strategy_v2(df, name_active)
-        prepare_message_database(active=name_active, direction=direction_v2, resultado="process", padrao=f"{padrao}-V2", status_alert=status_alert, name_strategy=f"{name_active}-M5-V2", mercado=mercado, t_version="M5-V2")
+        # direction_v2 = process_strategy_v2(df, name_active)
+        # prepare_message_database(active=name_active, direction=direction_v2, resultado="process", padrao=f"{padrao}-V2", status_alert=status_alert, name_strategy=f"{name_active}-M5-V2", mercado=mercado, t_version="M5-V2")
 
         # ----- V4
         direction_v4 = process_strategy_v4(df, name_active)

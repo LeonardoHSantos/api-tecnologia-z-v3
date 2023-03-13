@@ -328,9 +328,9 @@ class RunAnalysys:
                 if minutes in LIST_MINUTES_STRATEGY_V1_CHECK_RESULTS and seconds >= 3 and seconds <= 4:
                     lista_padroes = ["V1", "V2", "V4"]
                     self.check_result_strategies(lista_padroes=lista_padroes)
-                if minutes in LIST_MINUTES_STRATEGY_V3_CHECK_RESULTS and seconds >= 3 and seconds <= 4:
-                    lista_padroes = ["V3"]
-                    self.check_result_strategies(lista_padroes=lista_padroes)
+                # if minutes in LIST_MINUTES_STRATEGY_V3_CHECK_RESULTS and seconds >= 3 and seconds <= 4:
+                #     lista_padroes = ["V3"]
+                #     self.check_result_strategies(lista_padroes=lista_padroes)
 
 
                 # ----------------------------------------------------------------------- versão 1, 2 e 4
@@ -357,7 +357,8 @@ class RunAnalysys:
                         status_alert = LIST_MINUTES_STRATEGY_V3[minutes]
                     
                     if status_alert != None:
-                        self.strategy_3(status_alert=status_alert, t_version="M5-V3", padrao="PADRAO-M5-V3")
+                        pass
+                        # self.strategy_3(status_alert=status_alert, t_version="M5-V3", padrao="PADRAO-M5-V3")
 
                 
                 # ----------------------------------------------------------------------- versão 2
