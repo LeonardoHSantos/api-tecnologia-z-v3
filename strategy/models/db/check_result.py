@@ -4,12 +4,12 @@ from strategy.controllers.convert_data.convert_datetime import datetime_now
 
 
 def update_database_M5(obj_database, lista_padroes):
-    conn = conn_db()
-    cursor = conn.cursor()
-    print(" **** DB - CONECTADO **** ")
     # 'id', 'open_time', 'active', 'direction', 'resultado', 'padrao', 'alert_datetime', 'expiration_alert', 'expiration_alert_timestamp', 'status_alert', 'name_strategy', 'mercado', 'alert_time_update'
     
     try:
+        conn = conn_db()
+        cursor = conn.cursor()
+        print(" **** DB - CONECTADO **** ")
         
         for df in obj_database:
             print("\n\n------------------------ dataframe update --------------------------------")

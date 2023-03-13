@@ -317,73 +317,75 @@ class RunAnalysys:
     
     
     def initiate_strategies(self):
-        
         while True:
-            date = datetime.now()
-            minutes = date.minute
-            seconds = date.second
-            # compartilhando 1, 2 e 4
-            
-            # check results
-            if minutes in LIST_MINUTES_STRATEGY_V1_CHECK_RESULTS and seconds >= 3 and seconds <= 4:
-                lista_padroes = ["V1", "V2", "V4"]
-                self.check_result_strategies(lista_padroes=lista_padroes)
-            if minutes in LIST_MINUTES_STRATEGY_V3_CHECK_RESULTS and seconds >= 3 and seconds <= 4:
-                lista_padroes = ["V3"]
-                self.check_result_strategies(lista_padroes=lista_padroes)
-
-
-            # ----------------------------------------------------------------------- versão 1, 2 e 4
-            if minutes in LIST_MINUTES_STRATEGY_V1.keys():
-                status_alert = None
+            try:
+                date = datetime.now()
+                minutes = date.minute
+                seconds = date.second
+                # compartilhando 1, 2 e 4
                 
-                if seconds >= 25 and seconds <= 26 and minutes in LIST_MINUTES_STRATEGY_V1_10S.keys():
-                    status_alert = LIST_MINUTES_STRATEGY_V1_10S[minutes]
+                # check results
+                if minutes in LIST_MINUTES_STRATEGY_V1_CHECK_RESULTS and seconds >= 3 and seconds <= 4:
+                    lista_padroes = ["V1", "V2", "V4"]
+                    self.check_result_strategies(lista_padroes=lista_padroes)
+                if minutes in LIST_MINUTES_STRATEGY_V3_CHECK_RESULTS and seconds >= 3 and seconds <= 4:
+                    lista_padroes = ["V3"]
+                    self.check_result_strategies(lista_padroes=lista_padroes)
 
-                elif seconds >= 14 and seconds <= 15:
-                    status_alert = LIST_MINUTES_STRATEGY_V1[minutes]
-                
-                if status_alert != None:
-                    self.strategy_1(status_alert=status_alert, t_version="M5-V1", padrao="PADRAO-M5")
-            
-            # ----------------------------------------------------------------------- versão 3
-            if minutes in LIST_MINUTES_STRATEGY_V3.keys():
-                status_alert = None
-                
-                if seconds >= 40 and seconds <= 41 and minutes in LIST_MINUTES_STRATEGY_V3_10S.keys():
-                    status_alert = LIST_MINUTES_STRATEGY_V3_10S[minutes]
 
-                elif seconds >= 14 and seconds <= 15:
-                    status_alert = LIST_MINUTES_STRATEGY_V3[minutes]
-                
-                if status_alert != None:
-                    self.strategy_3(status_alert=status_alert, t_version="M5-V3", padrao="PADRAO-M5-V3")
+                # ----------------------------------------------------------------------- versão 1, 2 e 4
+                if minutes in LIST_MINUTES_STRATEGY_V1.keys():
+                    status_alert = None
+                    
+                    if seconds >= 25 and seconds <= 26 and minutes in LIST_MINUTES_STRATEGY_V1_10S.keys():
+                        status_alert = LIST_MINUTES_STRATEGY_V1_10S[minutes]
 
-            
-            # ----------------------------------------------------------------------- versão 2
-            # if minutes in LIST_MINUTES_STRATEGY_V2.keys():
-            #     status_alert = None
+                    elif seconds >= 14 and seconds <= 15:
+                        status_alert = LIST_MINUTES_STRATEGY_V1[minutes]
+                    
+                    if status_alert != None:
+                        self.strategy_1(status_alert=status_alert, t_version="M5-V1", padrao="PADRAO-M5")
                 
-            #     if seconds >= 35 and seconds <= 36 and minutes in LIST_MINUTES_STRATEGY_V2_10S.keys():
-            #         status_alert = LIST_MINUTES_STRATEGY_V2_10S[minutes]
+                # ----------------------------------------------------------------------- versão 3
+                if minutes in LIST_MINUTES_STRATEGY_V3.keys():
+                    status_alert = None
+                    
+                    if seconds >= 40 and seconds <= 41 and minutes in LIST_MINUTES_STRATEGY_V3_10S.keys():
+                        status_alert = LIST_MINUTES_STRATEGY_V3_10S[minutes]
 
-            #     elif seconds >= 18 and seconds <= 19:
-            #         status_alert = LIST_MINUTES_STRATEGY_V2[minutes]
+                    elif seconds >= 14 and seconds <= 15:
+                        status_alert = LIST_MINUTES_STRATEGY_V3[minutes]
+                    
+                    if status_alert != None:
+                        self.strategy_3(status_alert=status_alert, t_version="M5-V3", padrao="PADRAO-M5-V3")
+
                 
-            #     if status_alert != None:
-            #         self.strategy_2(status_alert=status_alert, t_version="M5-V2", padrao="PADRAO-M5-V2")
+                # ----------------------------------------------------------------------- versão 2
+                # if minutes in LIST_MINUTES_STRATEGY_V2.keys():
+                #     status_alert = None
+                    
+                #     if seconds >= 35 and seconds <= 36 and minutes in LIST_MINUTES_STRATEGY_V2_10S.keys():
+                #         status_alert = LIST_MINUTES_STRATEGY_V2_10S[minutes]
 
-            # # ----------------------------------------------------------------------- versão 4
-            # if minutes in LIST_MINUTES_STRATEGY_V4.keys():
-            #     status_alert = None
-               
-            #     if seconds >= 42 and seconds <= 43 and minutes in LIST_MINUTES_STRATEGY_V4_10S.keys():
-            #         status_alert = LIST_MINUTES_STRATEGY_V4_10S[minutes]
+                #     elif seconds >= 18 and seconds <= 19:
+                #         status_alert = LIST_MINUTES_STRATEGY_V2[minutes]
+                    
+                #     if status_alert != None:
+                #         self.strategy_2(status_alert=status_alert, t_version="M5-V2", padrao="PADRAO-M5-V2")
 
-            #     elif seconds >= 25 and seconds <= 26:
-            #         status_alert = LIST_MINUTES_STRATEGY_V4[minutes]
+                # # ----------------------------------------------------------------------- versão 4
+                # if minutes in LIST_MINUTES_STRATEGY_V4.keys():
+                #     status_alert = None
                 
-            #     if status_alert != None:
-            #         self.strategy_4(status_alert=status_alert, t_version="M5-V4", padrao="PADRAO-M5-V4")
+                #     if seconds >= 42 and seconds <= 43 and minutes in LIST_MINUTES_STRATEGY_V4_10S.keys():
+                #         status_alert = LIST_MINUTES_STRATEGY_V4_10S[minutes]
+
+                #     elif seconds >= 25 and seconds <= 26:
+                #         status_alert = LIST_MINUTES_STRATEGY_V4[minutes]
+                    
+                #     if status_alert != None:
+                #         self.strategy_4(status_alert=status_alert, t_version="M5-V4", padrao="PADRAO-M5-V4")
+            except Exception as e:
+                print(f"Erro com o processamento da API: {e}")
 
     
