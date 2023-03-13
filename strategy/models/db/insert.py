@@ -3,12 +3,12 @@ from strategy.models.db.conn_db import conn_db
 
 
 def insert_database_M5(obj_database):
-    conn = conn_db()
-    cursor = conn.cursor()
-    print(" **** DB - CONECTADO **** ")
     # 'id', 'open_time', 'active', 'direction', 'resultado', 'padrao', 'alert_datetime', 'expiration_alert', 'expiration_alert_timestamp', 'status_alert', 'name_strategy', 'mercado', 'alert_time_update'
     
     try:
+        conn = conn_db()
+        cursor = conn.cursor()
+        print(" **** DB - CONECTADO **** ")
         open_time                   = obj_database["open_time"]
         active                      = obj_database["active"]
         direction                   = obj_database["direction"]
